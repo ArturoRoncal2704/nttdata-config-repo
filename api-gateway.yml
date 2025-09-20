@@ -21,7 +21,6 @@ spring:
           predicates:
             - Path=/api/accounts,/api/accounts/**
           filters:
-            - StripPrefix=1
             - PrefixPath=/api
 
         - id: cards
