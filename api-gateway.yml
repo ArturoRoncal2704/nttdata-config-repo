@@ -15,12 +15,6 @@ spring:
           filters:
               - StripPrefix=1
               - PrefixPath=/api/v1
-        - id: authorization-server
-          uri: lb://authorization-server
-          predicates:
-            - Path=/api/security/**
-          filters:
-              - StripPrefix=2
        - id: accounts
           uri: lb://account-service
           predicates:
