@@ -1,0 +1,8 @@
+# Puerto
+server.port=8089
+
+spring.data.mongodb.uri=mongodb+srv://ntt_access_proyects:sTBqd1peP3HFJgHa@nttdatabnkdb.g8qwtzr.mongodb.net/NTTDataBnkDB?retryWrites=true&w=majority&appName=NTTDataBnkDB
+spring.data.mongodb.database=NTTDataBnkDB
+
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+eureka.instance.appname=walletpaymentsservice
