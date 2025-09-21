@@ -16,6 +16,14 @@ spring:
             - StripPrefix=1
             - PrefixPath=/api/v1
             
+        - id: bootcoin-quote
+          uri: lb://bootcoin-quote
+          predicates:
+            - Path=/api/bootcoin,/api/bootcoin/**
+          filters:
+            - StripPrefix=1
+            - PrefixPath=/api/v1
+            
         - id: accounts
           uri: lb://account-service
           predicates:
