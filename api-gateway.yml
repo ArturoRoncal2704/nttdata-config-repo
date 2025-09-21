@@ -55,3 +55,4 @@ spring:
             - Path=/api/wallets,/api/wallets/**
           filters:
             - StripPrefix=1      
+            - PrefixPath=/yanki  
