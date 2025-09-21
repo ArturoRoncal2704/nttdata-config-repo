@@ -68,7 +68,6 @@ spring:
         - id: wallet
           uri: lb://wallet-service
           predicates:
-            - Path=/api/wallets,/api/wallets/**
+            - Path=/api/wallets/**
           filters:
-            - StripPrefix=1
-            - RewritePath=^/api/wallets(?<tail>/?.*)$,/wallets${tail}
+            - RewritePath=/api/wallets/?(?<seg>.*),/yanki/wallets/${seg}
