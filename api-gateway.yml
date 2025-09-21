@@ -61,4 +61,4 @@ spring:
           predicates:
             - Path=/api/wallets,/api/wallets/**
           filters:
-            - StripPrefix=1      
+            - RewritePath=^/api/wallets(?<tail>/?.*)$,/yanki/wallets${tail}
