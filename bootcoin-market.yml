@@ -1,0 +1,51 @@
+server:
+  port: 8096
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+    consumer:
+      group-id: bootcoin-market
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.use.type.headers: false
+        spring.json.trusted.packages: "com.nttdata.bootocoin_market.events,com.nttdata.events"
+        spring.json.type.mapping: "QuoteUpdatedEvent:com.nttdata.bootocoin_market.events.QuoteUpdatedEvent"
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/bootcoin
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8091/realms/nttdatabank
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+app:
+  topics:
+    trade-created: trade.created
+    quote-updated: quote.updated

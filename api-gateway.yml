@@ -17,7 +17,7 @@ spring:
           filters:
             - StripPrefix=1
             - PrefixPath=/api/v1
-            
+
         - id: bootcoin-quote
           uri: lb://bootcoin-quote
           predicates:
@@ -26,12 +26,12 @@ spring:
             - RewritePath=/bootcoin/quote/(?<seg>.*),/api/v1/bootcoin/quote/${seg}
 
         - id: bootcoin-market
-          uri: lb://bootocoin-market
+          uri: lb://bootcoin-market
           predicates:
             - Path=/bootcoin/orders/**
           filters:
             - RewritePath=/bootcoin/orders/?(?<seg>.*),/api/v1/bootcoin/orders/${seg}
-            
+
         - id: accounts
           uri: lb://account-service
           predicates:
@@ -39,7 +39,6 @@ spring:
           filters:
             - StripPrefix=1
             - PrefixPath=/api
-        
 
         - id: cards
           uri: lb://cards-service
@@ -64,7 +63,7 @@ spring:
           filters:
             - StripPrefix=1
             - PrefixPath=/api/v1
-            
+
         - id: wallet
           uri: lb://wallet-service
           predicates:
