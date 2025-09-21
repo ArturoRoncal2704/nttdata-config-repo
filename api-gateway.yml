@@ -26,7 +26,7 @@ spring:
             - RewritePath=/bootcoin/quote/(?<seg>.*),/api/v1/bootcoin/quote/${seg}
 
         - id: bootcoin-market
-          uri: lb://bootcoin-market
+          uri: lb://bootocoin-market
           predicates:
             - Path=/bootcoin/orders/**
           filters:
