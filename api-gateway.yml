@@ -68,7 +68,7 @@ spring:
         - id: wallet
           uri: lb://wallet-service
           predicates:
-            - Path=/api/wallets/**
+            - Path=/api/wallets,/api/wallets/**
           filters:
             - StripPrefix=1
             - PrefixPath=/api
