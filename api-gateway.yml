@@ -19,10 +19,9 @@ spring:
         - id: bootcoin-quote
           uri: lb://bootcoin-quote
           predicates:
-            - Path=/api/bootcoin,/api/bootcoin/**
+            - Path=/bootcoin/quote/**
           filters:
-            - StripPrefix=1
-            - PrefixPath=/api/v1
+            - RewritePath=/bootcoin/quote/(?<seg>.*),/api/v1/bootcoin/quote/${seg}
             
         - id: accounts
           uri: lb://account-service
