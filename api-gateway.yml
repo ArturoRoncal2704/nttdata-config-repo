@@ -62,7 +62,7 @@ spring:
             - Path=/api/credits,/api/credits/**
           filters:
             - StripPrefix=1
-            - PrefixPath=/api/v1
+            - PrefixPath=/api
 
         - id: wallet
           uri: lb://wallet-service
