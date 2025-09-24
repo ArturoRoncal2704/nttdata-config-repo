@@ -3,7 +3,7 @@ server:
 
 spring:
   kafka:
-    bootstrap-servers: localhost:29092
+    bootstrap-servers: kafka:29092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -21,9 +21,10 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/bootcoin
+      uri: mongodb+srv://ntt_access_proyects:sTBqd1peP3HFJgHa@nttdatabnkdb.g8qwtzr.mongodb.net/NTTDataBnkDB?retryWrites=true&w=majority&appName=NTTDataBnkDB
+      database: NTTDataBnkDB
     redis:
-      host: localhost
+      host: redis
       port: 6379
       timeout: 2000ms
       lettuce:
@@ -37,7 +38,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8091/realms/nttdatabank
+          issuer-uri: http://keycloak:8080/realms/nttdatabank
 
 management:
   endpoints:
