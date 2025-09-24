@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: bootocoin-quote
+    name: bootcoin-quote
 
   kafka:
     bootstrap-servers: kafka:29092
